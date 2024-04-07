@@ -107,6 +107,8 @@ size_t JsonWriteRichPresenceObj(char* dest,
 
                 WriteOptionalString(writer, "state", presence->state);
                 WriteOptionalString(writer, "details", presence->details);
+                WriteKey(writer, "type");
+                writer.Int(presence->type);
 
                 if (presence->startTimestamp || presence->endTimestamp) {
                     WriteObject timestamps(writer, "timestamps");
